@@ -1,6 +1,6 @@
 # terraform-tfco-test
 
-This is a Terraform module to test the [Terraaform Cloud
+This is a Terraform module to test the [Terraform Cloud
 Operator](https://github.com/hashicorp/terraform-k8s).
 
 <!-- BEGIN_TF_DOCS -->
