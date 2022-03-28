@@ -1,0 +1,38 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args:
+          - --fix=lf
+      - id: trailing-whitespace
+
+  - repo: https://github.com/terraform-docs/terraform-docs
+    rev: v0.16.0
+    hooks:
+      - id: terraform-docs-go
+        args:
+          - markdown
+          - table
+          - --output-file=README.md
+          - .
+
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.30.0
+    hooks:
+      - id: markdownlint
+        name: Markdownlint
+        args:
+          - --config=.markdownlint.yaml
+
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.62.3
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_docs
+      - id: terraform_tflint
+        args:
+          - --args=--disable-rule=terraform_module_pinned_source
+      - id: terraform_validate
