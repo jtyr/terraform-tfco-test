@@ -8,7 +8,7 @@ Operator](https://github.com/hashicorp/terraform-k8s).
 
 | Name | Version |
 |------|---------|
-| random | n/a |
+| random | >= 3.1.2 |
 
 ## Inputs
 
