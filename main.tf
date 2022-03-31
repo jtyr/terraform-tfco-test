@@ -12,3 +12,17 @@ resource "random_password" "password" {
   special          = true
   override_special = "!#$%&*()-_=+[]{}<>:?"
 }
+
+resource "null_resource" "fail" {
+  triggers = {
+    always_run = timestamp()
+  }
+
+  provisioner "local-exec" {
+    command     = <<EOC
+      echo "Fail now"
+      exit 1
+    EOC
+    interpreter = ["/bin/bash", "-c"]
+  }
+}
