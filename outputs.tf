@@ -38,3 +38,9 @@ output "password" {
   value       = random_password.password
   sensitive   = true
 }
+
+output "sensitive" {
+  description = "Sensitive output"
+  value       = local.sensitive
+  sensitive   = true
+}
