@@ -7,6 +7,10 @@ terraform {
   }
 }
 
+locals {
+  sensitive = upper(var.sensitive)
+}
+
 resource "random_password" "password" {
   length           = 16
   special          = true
@@ -14,6 +18,8 @@ resource "random_password" "password" {
 }
 
 resource "null_resource" "fail" {
+  count = var.fail ? 1 : 0
+
   triggers = {
     always_run = timestamp()
   }

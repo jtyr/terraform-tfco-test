@@ -38,9 +38,23 @@ variable "list" {
 }
 
 variable "map" {
-  type = map(string)
+  description = "Map variable"
+  type        = map(string)
   default = {
     "foo" = "abc"
     "bar" = "xyz"
   }
+}
+
+variable "fail" {
+  description = "Whether to fail or not"
+  type        = bool
+  default     = false
+}
+
+variable "sensitive" {
+  description = "Sensitive variable"
+  type        = string
+  default     = "sensitive test"
+  sensitive   = true
 }
